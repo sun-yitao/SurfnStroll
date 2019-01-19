@@ -494,10 +494,10 @@
 		7BEB64521C7345990092C02E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60B0071BDE3AE10090C984 /* SnapshotHelper.swift */; };
 		7BEFC6801BFF68C30059C952 /* QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFC67F1BFF68C30059C952 /* QuickActions.swift */; };
 		7BF5A1EA1B41640500EA9DD8 /* SyncQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */; };
-		7ED761E521F306F3002884BC /* collision.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7ED761E421F306F3002884BC /* collision.mlmodel */; };
 		7ED761E821F3236F002884BC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED761E621F3236F002884BC /* MapViewController.swift */; };
 		7ED7625821F331E3002884BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED7625721F331E3002884BC /* MapKit.framework */; };
 		7ED7627021F37480002884BC /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED7626F21F3747F002884BC /* MapScreen.swift */; };
+		7EE746D921F3A2F9003356B6 /* collision.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7EE746D821F3A2F8003356B6 /* collision.mlmodel */; };
 		A104E199210A384400D2323E /* ShieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104E198210A384400D2323E /* ShieldsViewController.swift */; };
 		A134B88A20DA98BB00A581D0 /* ClientPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A134B88920DA98BB00A581D0 /* ClientPreferences.swift */; };
 		A13AC72520EC12360040D4BB /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AC72420EC12360040D4BB /* Migration.swift */; };
@@ -1787,10 +1787,10 @@
 		7BEB645B1C7345990092C02E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = MarketingUITests/Info.plist; sourceTree = SOURCE_ROOT; };
 		7BEFC67F1BFF68C30059C952 /* QuickActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActions.swift; sourceTree = "<group>"; };
 		7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncQueue.swift; sourceTree = "<group>"; };
-		7ED761E421F306F3002884BC /* collision.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = collision.mlmodel; path = ../../../coll_data/collision.mlmodel; sourceTree = "<group>"; };
 		7ED761E621F3236F002884BC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7ED7625721F331E3002884BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7ED7626F21F3747F002884BC /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
+		7EE746D821F3A2F8003356B6 /* collision.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = collision.mlmodel; path = Client/collision.mlmodel; sourceTree = "<group>"; };
 		A104E198210A384400D2323E /* ShieldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldsViewController.swift; sourceTree = "<group>"; };
 		A134B88920DA98BB00A581D0 /* ClientPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPreferences.swift; sourceTree = "<group>"; };
 		A13AC72420EC12360040D4BB /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
@@ -3852,7 +3852,7 @@
 		F84B21B51A090F8100AAB793 = {
 			isa = PBXGroup;
 			children = (
-				7ED761E421F306F3002884BC /* collision.mlmodel */,
+				7EE746D821F3A2F8003356B6 /* collision.mlmodel */,
 				59B6912D21B695A400E9388E /* Storage.strings */,
 				59B6911E21B695A400E9388E /* InfoPlist.strings */,
 				E6C191D41E38F7B7000A213B /* Cartfile */,
@@ -5420,7 +5420,6 @@
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
 				0A1E843E2190A57F0042F782 /* SyncCodewordsView.swift in Sources */,
 				E68F36981EA694000048CF44 /* PanelDataObservers.swift in Sources */,
-				7ED761E521F306F3002884BC /* collision.mlmodel in Sources */,
 				31ADB5DA1E58CEC300E87909 /* ClipboardBarDisplayHandler.swift in Sources */,
 				0A4B012020D02EC4004D4011 /* TabsBarViewController.swift in Sources */,
 				4422D4D921BFFB7600BF1855 /* merger.cc in Sources */,
@@ -5469,6 +5468,7 @@
 				0B3E7D951B27A7CE00E2E84D /* AboutHomeHandler.swift in Sources */,
 				0AADC4CA20D2A66E00FDE368 /* FavoriteCell.swift in Sources */,
 				4422D4C021BFFB7600BF1855 /* options.cc in Sources */,
+				7EE746D921F3A2F9003356B6 /* collision.mlmodel in Sources */,
 				A198E75120C701ED00334C11 /* HistoryViewController.swift in Sources */,
 				D3BE7B461B054F8600641031 /* TestAppDelegate.swift in Sources */,
 				A1F66A7320DD71C400303328 /* SettingsViewController.swift in Sources */,
