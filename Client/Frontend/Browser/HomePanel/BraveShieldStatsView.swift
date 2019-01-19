@@ -15,14 +15,16 @@ class BraveShieldStatsView: UIView, Themeable {
     
     lazy var adsStatView: StatView = {
         let statView = StatView(frame: CGRect.zero)
-        statView.title = Strings.ShieldsAdAndTrackerStats
+        //statView.title = Strings.ShieldsAdAndTrackerStats
+        statView.title = "Collisions Avoided"
         statView.color = UX.BraveOrange
         return statView
     }()
 
     lazy var httpsStatView: StatView = {
         let statView = StatView(frame: CGRect.zero)
-        statView.title = Strings.ShieldsHttpsStats
+        //statView.title = Strings.ShieldsHttpsStats
+        statView.title = "Steps Taken"
         statView.color = UX.Green
         return statView
     }()
@@ -72,7 +74,8 @@ class BraveShieldStatsView: UIView, Themeable {
     
     @objc private func update() {
         adsStatView.stat = "\(BraveGlobalShieldStats.shared.adblock + BraveGlobalShieldStats.shared.trackingProtection)"
-        httpsStatView.stat = "\(BraveGlobalShieldStats.shared.httpse)"
+        //httpsStatView.stat = "\(BraveGlobalShieldStats.shared.httpse)"
+        httpsStatView.stat = "1833"
         timeStatView.stat = timeSaved
     }
     

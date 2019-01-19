@@ -355,36 +355,38 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                 self.captureSession.startRunning()
         }
     }
-    
     // called everytime a frame is captured
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            guard let model = try? VNCoreMLModel(for: collision().model) else { return }
-            let request = VNCoreMLRequest(model: model) { (finishedRequest, error) in
-                guard let results = finishedRequest.results as? [VNClassificationObservation] else { return }
-                guard let Observation = results.first else { return }
+        if pauseCounter <= 0 {
+            DispatchQueue.global(qos: .userInitiated).async {
             
-            DispatchQueue.main.async(execute: {
-                //self.label.text = "\(Observation.identifier)"
-                print(Observation.identifier)
-                if Observation.confidence > 0.65 && Observation.identifier == "obstacle" && self.pauseCounter <= 0 {
-                    let alert = UIAlertController(title: "\(Observation.identifier)", message: "\(Observation.identifier) Detected", preferredStyle: .alert)
-                    let action = UIAlertAction (title: "Dismiss", style: .default) { (UIAlertAction) in
-                        alert.dismiss(animated: true, completion: nil)
-                        self.pauseCounter += 100
+                guard let model = try? VNCoreMLModel(for: collision().model) else { return }
+                let request = VNCoreMLRequest(model: model) { (finishedRequest, error) in
+                    guard let results = finishedRequest.results as? [VNClassificationObservation] else { return }
+                    guard let Observation = results.first else { return }
+            
+                    DispatchQueue.main.async(execute: {
+                        print(Observation.identifier)
+                        if Observation.confidence > 0.65 && Observation.identifier == "obstacle" {
+                            let alert = UIAlertController(title: "\(Observation.identifier)", message: "\(Observation.identifier) Detected", preferredStyle: .alert)
+                            let action = UIAlertAction (title: "Dismiss", style: .default) { (UIAlertAction) in
+                                alert.dismiss(animated: true, completion: nil)
+                                self.pauseCounter += 125
+                            }
+
+                            alert.addAction(action)
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    })
                     }
-                    alert.addAction(action)
-                    self.present(alert, animated: true, completion: nil)
-                } else if self.pauseCounter > 0 {
-                    self.pauseCounter -= 1
-                }
-            })
+                request.imageCropAndScaleOption = .scaleFit
+                guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+                
+                // executes request
+                try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
             }
-            request.imageCropAndScaleOption = .scaleFit
-            guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-            
-            // executes request
-            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+        } else if self.pauseCounter > 0 {
+            self.pauseCounter -= 1
         }
     }
     /*
@@ -392,6 +394,7 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
     } */
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
