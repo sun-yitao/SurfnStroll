@@ -358,6 +358,7 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     // called everytime a frame is captured
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if pauseCounter <= 0 {
+            pauseCounter += 125
             DispatchQueue.global(qos: .userInitiated).async {
             
                 guard let model = try? VNCoreMLModel(for: collision().model) else { return }
@@ -371,7 +372,7 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                             let alert = UIAlertController(title: "\(Observation.identifier)", message: "\(Observation.identifier) Detected", preferredStyle: .alert)
                             let action = UIAlertAction (title: "Dismiss", style: .default) { (UIAlertAction) in
                                 alert.dismiss(animated: true, completion: nil)
-                                self.pauseCounter += 125
+                                
                             }
 
                             alert.addAction(action)
