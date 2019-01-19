@@ -4,7 +4,7 @@ An actual MOBILE browser. We enable users to surf the net while travelling to th
 
 ### Instructions
 
-##### Build from source: Xcode
+    Build from source: Xcode
 
 ### Built With:
 
