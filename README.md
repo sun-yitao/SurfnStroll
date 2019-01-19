@@ -1,5 +1,5 @@
 # Surf & Stroll
-
+<img src="https://github.com/sun-yitao/SurfnStroll/blob/master/logo.png" alt="logo" width="200" height="200"/>
 An app that helps people who use the phone while walking to do so more safely. 
 
 It is a fully functional mobile browser that sends a alert to the user when there is a obstacle in front so the user does not walk into it or trip on it. There is also a gps functionality that allows the user to see where he or she is walking and route a path to get from point A to point B. 
