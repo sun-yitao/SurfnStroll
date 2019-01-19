@@ -1,6 +1,6 @@
 # Surf & Stroll
 
-An actual MOBILE browser - yitao
+An actual MOBILE browser. We enable users to surf the net while travelling to their destinations, seamlessly.
 
 ### Instructions
 
