@@ -10,23 +10,25 @@ We started by collecting data using mobile phones in video format, which we extr
 ### Instructions for installation
 
 Build from source:
-    1. Install the latest Xcode developer tools from Apple. (Xcode 10 and up required)
-    2. Install homebrew https://brew.sh
-    3. ```brew update
-          brew install carthage``` 
-    5. ```brew install swiftlint```
-    6. ```git clone https://github.com/sun-yitao/collision_detector.git```
-    7. ```cd collision_detector
-          sh ./bootstrap.sh```
-    8. Open Client.xcodeproj in Xcode.
-    9. Build using Fennec scheme in Xcode.
+1. Install the latest Xcode developer tools from Apple. (Xcode 10 and up required)
+    
+2. Install homebrew https://brew.sh
+    
+3. ```brew update``` <br />
+  ``` brew install carthage```  <br />
+5. ```brew install swiftlint``` <br />
+6. ```git clone https://github.com/sun-yitao/collision_detector.git``` <br />
+7. ```cd collision_detector``` <br /> 
+   ```sh ./bootstrap.sh``` <br />
+8. Open Client.xcodeproj in Xcode.
+9. Build using Fennec scheme in Xcode.
     
 
 ### Authors
 
-    Yitao
-    Quinn
-    Noel
+Yitao
+Quinn
+Noel
     
 ### License
 
