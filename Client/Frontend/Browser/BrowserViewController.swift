@@ -376,6 +376,7 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 
                             alert.addAction(action)
                             self.present(alert, animated: true, completion: nil)
+                            AudioServicesPlayAlertSound(SystemSoundID(1031))
                         }
                     })
                     }
