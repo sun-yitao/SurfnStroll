@@ -23,7 +23,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         mapView?.delegate = self
         self.view.addSubview(self.mapView!)
         
-        
         let backButton = UIButton(frame: CGRect(x: 0, y: 686, width: 100, height: 50))
         backButton.setTitleColor(.blue, for: .normal)
         backButton.setTitle("Back", for: .normal)
@@ -35,6 +34,11 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         goButton.setTitle("Go", for: .normal)
         goButton.addTarget(self, action: #selector(goButtonAction), for: .touchUpInside)
         self.view.addSubview(goButton)
+    
+        let imageView = UIImageView(frame: CGRect(x: 167.67, y: 366, width: 30, height: 50))
+        imageView.image = UIImage(named: "pin")
+        imageView.center = self.view.center
+        view.addSubview(imageView)
         
         addressLabel.center = CGPoint(x: 257, y: 711)
         addressLabel.textAlignment = NSTextAlignment.center
@@ -97,7 +101,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             
             for route in response.routes {
                 self.mapView?.add(route.polyline)
-                self.mapView?.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                //self.mapView?.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
         }
     }
@@ -116,7 +120,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         return request
         
     }
-    
     
     func resetMapView(withNew directions: MKDirections) {
         mapView!.removeOverlays((mapView?.overlays)!)

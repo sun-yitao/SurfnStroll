@@ -494,7 +494,6 @@
 		7BEB64521C7345990092C02E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60B0071BDE3AE10090C984 /* SnapshotHelper.swift */; };
 		7BEFC6801BFF68C30059C952 /* QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFC67F1BFF68C30059C952 /* QuickActions.swift */; };
 		7BF5A1EA1B41640500EA9DD8 /* SyncQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */; };
-		7ED761E821F3236F002884BC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED761E621F3236F002884BC /* MapViewController.swift */; };
 		7ED7625821F331E3002884BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED7625721F331E3002884BC /* MapKit.framework */; };
 		7ED7627021F37480002884BC /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED7626F21F3747F002884BC /* MapScreen.swift */; };
 		7EE746D921F3A2F9003356B6 /* collision.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7EE746D821F3A2F8003356B6 /* collision.mlmodel */; };
@@ -1787,7 +1786,6 @@
 		7BEB645B1C7345990092C02E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = MarketingUITests/Info.plist; sourceTree = SOURCE_ROOT; };
 		7BEFC67F1BFF68C30059C952 /* QuickActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActions.swift; sourceTree = "<group>"; };
 		7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncQueue.swift; sourceTree = "<group>"; };
-		7ED761E621F3236F002884BC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7ED7625721F331E3002884BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7ED7626F21F3747F002884BC /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		7EE746D821F3A2F8003356B6 /* collision.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = collision.mlmodel; path = Client/collision.mlmodel; sourceTree = "<group>"; };
@@ -3542,7 +3540,6 @@
 				E6D8D5E61B569D70009E5A58 /* BrowserTrayAnimators.swift */,
 				C8F457A61F1FD75A000CB895 /* BrowserViewController */,
 				D3A994951A3686BD008AD1AC /* BrowserViewController.swift */,
-				7ED761E621F3236F002884BC /* MapViewController.swift */,
 				7ED7626F21F3747F002884BC /* MapScreen.swift */,
 				C4F3B2991CFCF93A00966259 /* ButtonToast.swift */,
 				31ADB5D91E58CEC300E87909 /* ClipboardBarDisplayHandler.swift */,
@@ -5577,7 +5574,6 @@
 				E6D8D5E71B569D70009E5A58 /* BrowserTrayAnimators.swift in Sources */,
 				DDA24A431FD84D630098F159 /* DefaultSearchPrefs.swift in Sources */,
 				4422D4B121BFFB7600BF1855 /* bloom.cc in Sources */,
-				7ED761E821F3236F002884BC /* MapViewController.swift in Sources */,
 				4422D4FD21BFFB7600BF1855 /* dumpfile.cc in Sources */,
 				E65075611E37F77D006961AC /* MenuHelper.swift in Sources */,
 				E63ED7D81BFCD9990097D08E /* LoginTableViewCell.swift in Sources */,

@@ -6,8 +6,6 @@ from keras_applications import get_keras_submodule
 from keras_preprocessing.image import ImageDataGenerator, img_to_array, array_to_img
 from keras.layers import *
 from keras import callbacks
-#from keras.applications.inception_resnet_v2 import preprocess_input
-#from keras_contrib.applications.wide_resnet import WideResidualNetwork
 from keras_contrib.applications.resnet import ResNet18
 from scipy import ndimage
 from PIL import Image
@@ -15,15 +13,8 @@ import tensorflow as tf
 from keras import backend as K
 from time import time
 from keras.utils import multi_gpu_model
-
-#K.clear_session()
 import os
 
-"""
-Changelog
-Model 1: resnet 18
-
-"""
 
 train_dir = r''
 val_dir = r''
@@ -54,21 +45,9 @@ if __name__ == '__main__':
     valid = valid_datagen.flow_from_directory(val_dir, target_size=img_size,
                                               color_mode='rgb', batch_size=32, interpolation='bicubic')
 
-    #input_tensor = keras.layers.Input(shape=(320, 180, 3))
     model = ResNet18(input_shape=(320, 180, 3), classes=2)
-    #x = base_model.output
-    #x = GlobalAveragePooling2D()(x)
-    #x = Dropout(0.25)(x)
-    #x = Dense(1024, activation='relu', kernel_initializer='he_uniform')(x)
-    #predictions = Dense(2, activation='softmax',
-    #                   kernel_regularizer=k_regularizer)(x)
-    #model = keras.models.Model(inputs=base_model.input, outputs=predictions)
 
-    """
-    #Multi GPU, call parallel model.fit_generator, may have to set save_weights_only=True and save architecture as json
-    ser_model = Keras.models.Model(inputs=base_model.input, outputs=predictions)
-    parallel_model = ModelMGPU(ser_model, 2)
-    """
+    
     learning_rate_base = 0.01
     sgd = keras.optimizers.SGD(
         lr=learning_rate_base, decay=learning_rate_base/100, momentum=0.9, nesterov=True)
@@ -77,7 +56,7 @@ if __name__ == '__main__':
                   metrics=['accuracy'])
 
     model_num = 1
-    checkpoint_path = r'C:\yitao\coll\checkpoints\model_{}_checkpoints'.format(model_num)
+    checkpoint_path = r''.format(model_num)
     if not os.path.isdir(checkpoint_path):
         os.makedirs(checkpoint_path)
     ckpt = callbacks.ModelCheckpoint(os.path.join(checkpoint_path, 'model.{epoch:02d}-{val_acc:.2f}.h5'),
