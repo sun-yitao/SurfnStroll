@@ -325,6 +325,7 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         return label
     }() */
     let captureSession = AVCaptureSession()
+    var pauseCounter = 0
     
     func setupCaptureSession() {
         DispatchQueue.global(qos: .userInitiated).async {
@@ -354,10 +355,11 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                 self.captureSession.startRunning()
         }
     }
+    
     // called everytime a frame is captured
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         DispatchQueue.global(qos: .userInitiated).async {
-            guard let model = try? VNCoreMLModel(for: Resnet50().model) else { return }
+            guard let model = try? VNCoreMLModel(for: collision().model) else { return }
             let request = VNCoreMLRequest(model: model) { (finishedRequest, error) in
                 guard let results = finishedRequest.results as? [VNClassificationObservation] else { return }
                 guard let Observation = results.first else { return }
@@ -365,17 +367,20 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             DispatchQueue.main.async(execute: {
                 //self.label.text = "\(Observation.identifier)"
                 print(Observation.identifier)
-                if Observation.confidence > 0.65 {
+                if Observation.confidence > 0.65 && Observation.identifier == "obstacle" && self.pauseCounter <= 0 {
                     let alert = UIAlertController(title: "\(Observation.identifier)", message: "\(Observation.identifier) Detected", preferredStyle: .alert)
                     let action = UIAlertAction (title: "Dismiss", style: .default) { (UIAlertAction) in
                         alert.dismiss(animated: true, completion: nil)
+                        self.pauseCounter += 100
                     }
                     alert.addAction(action)
                     self.present(alert, animated: true, completion: nil)
+                } else if self.pauseCounter > 0 {
+                    self.pauseCounter -= 1
                 }
             })
             }
-            request.imageCropAndScaleOption = .centerCrop
+            request.imageCropAndScaleOption = .scaleFit
             guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
             
             // executes request
@@ -1745,7 +1750,7 @@ extension BrowserViewController: TabToolbarDelegate {
     }
     
     func tabToolbarDidPressShare(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-        func share(url: URL) {
+        /*func share(url: URL) {
             presentActivityViewController(
                 url,
                 tab: url.isFileURL ? nil : tabManager.selectedTab,
@@ -1753,6 +1758,8 @@ extension BrowserViewController: TabToolbarDelegate {
                 sourceRect: view.convert(urlBar.shareButton.frame, from: urlBar.shareButton.superview),
                 arrowDirection: [.up]
             )
+        
+        
         }
         
         guard let tab = tabManager.selectedTab, let url = tab.url else { return }
@@ -1769,7 +1776,11 @@ extension BrowserViewController: TabToolbarDelegate {
             })
         } else {
             share(url: url)
-        }
+        }*/
+        let mapVC = MapScreen()
+        let view = mapVC.view
+        //self.navigationController?.pushViewController(mapVC, animated: true)
+        present(mapVC, animated: true, completion: nil)
     }
     
     func tabToolbarDidPressAddTab(_ tabToolbar: TabToolbarProtocol, button: UIButton) {

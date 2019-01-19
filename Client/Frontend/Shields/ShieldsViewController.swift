@@ -136,6 +136,7 @@ class ShieldsViewController: UIViewController, PopoverContentComponent {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Shield View Controller")
         
         shieldControlMapping.forEach { shield, toggle, option in
             toggle.valueToggled = { [unowned self] on in

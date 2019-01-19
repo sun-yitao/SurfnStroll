@@ -3,15 +3,24 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class MapViewController: UINavigationController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+        button.backgroundColor = .green
+        button.setTitle("Back", for: .normal)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        self.view.addSubview(button)
         // Do any additional setup after loading the view.
     }
-
+    
+    @objc func buttonAction(sender: UIButton!) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

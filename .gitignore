@@ -83,6 +83,7 @@ node_modules
 scripts/
 BuildId.xcconfig
 
-Client/Configuration/Local/
+#Client/Configuration/Local/
+Client/Configuration/Local/DevTeam.xcconfig
 
 adblock-regions.txt
