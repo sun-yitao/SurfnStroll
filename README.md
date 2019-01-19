@@ -1,15 +1,15 @@
 # Surf & Stroll
 
-An actual MOBILE browser - yitao
+An actual MOBILE browser. We enable users to surf the net while travelling to their destinations, seamlessly.
 
 ### Instructions
 
-##### Build from source: Xcode
+    Build from source: Xcode
 
 ### Built With:
 
-Python
-Swift
+    Python
+    Swift
 
 ### Author
 
