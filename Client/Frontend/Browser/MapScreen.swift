@@ -20,7 +20,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.view.backgroundColor = UIColor.white
         self.mapView = MKMapView(frame: CGRect(x: 0, y: 20, width: (self.window?.frame.width)!, height: 650))
+        mapView?.delegate = self
         self.view.addSubview(self.mapView!)
+        
         
         let backButton = UIButton(frame: CGRect(x: 0, y: 686, width: 100, height: 50))
         backButton.setTitleColor(.blue, for: .normal)
@@ -38,14 +40,12 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         addressLabel.textAlignment = NSTextAlignment.center
         addressLabel.text = "Address"
         self.view.addSubview(addressLabel)
-        
-        
-        
+
         self.locationManager = CLLocationManager()
         if let locationManager = self.locationManager {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
             locationManager.distanceFilter = 50
             locationManager.startUpdatingLocation()
         }
@@ -63,7 +63,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     func centerViewOnUserLocation() {
         if let location = locationManager?.location?.coordinate {
             let region = MKCoordinateRegionMakeWithDistance(location, distanceSpan, distanceSpan)
-            mapView?.setRegion(region, animated: true)
+            mapView!.setRegion(region, animated: true)
         }
     }
     
@@ -110,10 +110,11 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         let request                     = MKDirections.Request()
         request.source                  = MKMapItem(placemark: startingLocation)
         request.destination             = MKMapItem(placemark: destination)
-        request.transportType           = .automobile
+        request.transportType           = .walking
         request.requestsAlternateRoutes = true
         
         return request
+        
     }
     
     
