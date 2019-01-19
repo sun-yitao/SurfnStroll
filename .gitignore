@@ -81,9 +81,9 @@ node_modules
 
 # Brave
 scripts/
-BuildId.xcconfig
+#BuildId.xcconfig
 
 #Client/Configuration/Local/
-Client/Configuration/Local/DevTeam.xcconfig
+#Client/Configuration/Local/DevTeam.xcconfig
 
 adblock-regions.txt

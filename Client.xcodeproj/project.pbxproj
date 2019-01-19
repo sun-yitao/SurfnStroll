@@ -8356,6 +8356,7 @@
 					"-ObjC",
 					"-lxml2",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = brave.sunyitao.local.id;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client-Bridging-Header.h";
@@ -8813,6 +8814,7 @@
 					"-framework",
 					CoreMedia,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = brave.sunyitao.local.id;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
@@ -9247,6 +9249,7 @@
 					"-ObjC",
 					"-lxml2",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = brave.sunyitao.local.id;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client-Bridging-Header.h";
@@ -9511,6 +9514,7 @@
 					"-framework",
 					CoreMedia,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = brave.sunyitao.local.id;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
