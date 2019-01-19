@@ -22,7 +22,8 @@ Build from source:
    ```sh ./bootstrap.sh``` <br />
 8. Open Client.xcodeproj in Xcode.
 9. Build using Fennec scheme in Xcode.
-    
+
+The Script for training the keras model and the best checkpoint is included in the folder Python_ML. Reason we used resnet 18 was due to a lack of data which lead to overfitting with bigger models.
 
 ### Authors
 
