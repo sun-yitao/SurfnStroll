@@ -4,7 +4,7 @@ An app that helps people who use the phone while walking to do so more safely.
 
 It is a fully functional mobile browser that sends an alert to the user when there is an obstacle in front so the user does not walk into it or trip on it. There is also a gps functionality that allows the user to see where he or she is walking and route a path to get from point A to point B. 
 
-Demo : [](https://youtu.be/f0exMuqcsCs)
+Demo : https://youtu.be/f0exMuqcsCs
 
 ### How we built the app
 We started by collecting data using mobile phones in video format, which we extracted in jpgs at 5 frames per second. We then trained a ResNet18 model in keras which yielded 96% validation accuracy. After which, we converted the .h5 checkpoint to .coreml using coremltools. We used ResNet18 to train due to a lack of data which led to overfitting with bigger models. We then managed to add the video capturing and image recognition to a open source browser called brave (unfortunately iOS doesn't allow expensive computation and camera functions to carry out in the background when the app is not active). The reason we chose a web browser to build on is because it retains most of the smartphone's functionality including writing emails, browsing social media and using various other web apps. For the GPS routing function, it was written using the MapKit framework provided by Apple.
