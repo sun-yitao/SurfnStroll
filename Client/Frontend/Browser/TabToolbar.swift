@@ -269,7 +269,7 @@ extension TabToolbar: TabToolbarProtocol {
     }
 
     func updatePageStatus(_ isWebPage: Bool) {
-        shareButton.isEnabled = isWebPage
+        shareButton.isEnabled = true
     }
 
     func updateTabCount(_ count: Int) {
