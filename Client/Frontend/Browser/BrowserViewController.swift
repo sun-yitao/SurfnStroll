@@ -34,6 +34,7 @@ private let KVOs: [KVOConstants] = [
 ]
 
 private let ActionSheetTitleMaxLength = 120
+var collisionCounter = 0
 
 private struct BrowserViewControllerUX {
     fileprivate static let BackgroundColor = UIConstants.AppBackgroundColor
@@ -384,6 +385,7 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                             alert.addAction(action)
                             self.present(alert, animated: true, completion: nil)
                             AudioServicesPlayAlertSound(SystemSoundID(1031))
+                            collisionCounter += 1
                         }
                     })
                     }
@@ -3022,3 +3024,4 @@ extension BrowserViewController: PreferencesObserver {
         }
     }
 }
+

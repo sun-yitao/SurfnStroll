@@ -73,7 +73,8 @@ class BraveShieldStatsView: UIView, Themeable {
     }
     
     @objc private func update() {
-        adsStatView.stat = "\(BraveGlobalShieldStats.shared.adblock + BraveGlobalShieldStats.shared.trackingProtection)"
+        //adsStatView.stat = "\(BraveGlobalShieldStats.shared.adblock + BraveGlobalShieldStats.shared.trackingProtection)"
+        adsStatView.stat = "\(collisionCounter)"
         //httpsStatView.stat = "\(BraveGlobalShieldStats.shared.httpse)"
         httpsStatView.stat = "1833"
         timeStatView.stat = timeSaved
