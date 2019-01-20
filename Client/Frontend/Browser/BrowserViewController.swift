@@ -369,12 +369,18 @@ class BrowserViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                     DispatchQueue.main.async(execute: {
                         print(Observation.identifier)
                         if Observation.confidence > 0.65 && Observation.identifier == "obstacle" {
-                            let alert = UIAlertController(title: "\(Observation.identifier)", message: "\(Observation.identifier) Detected", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Obstacle Detected", message: "Please look out", preferredStyle: .alert)
+                            let barrierImageView = UIImageView(frame: CGRect(x: 10, y: 50, width: 250, height: 230))
+                            barrierImageView.image = UIImage(named: "barrier")
+                            alert.view.addSubview(barrierImageView)
+                            let height = NSLayoutConstraint(item: alert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 320)
+                            let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
+                            alert.view.addConstraint(height)
+                            alert.view.addConstraint(width)
+                            
                             let action = UIAlertAction (title: "Dismiss", style: .default) { (UIAlertAction) in
                                 alert.dismiss(animated: true, completion: nil)
-                                
                             }
-
                             alert.addAction(action)
                             self.present(alert, animated: true, completion: nil)
                             AudioServicesPlayAlertSound(SystemSoundID(1031))
