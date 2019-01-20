@@ -8,8 +8,9 @@ It is a fully functional mobile browser that sends a alert to the user when ther
 We started by collecting data using mobile phones in video format, which we extracted in jpgs at 5 frames per second. We then trained a ResNet18 model in keras which yielded 96% validation accuracy. We then converted the .h5 checkpoint to .coreml using coremltools. Our app runs the camera and image detection asynchronously in the background when the app is running (unfortunately iOS doesnt allow expensive computation and camera functions to carry out in the background when the app is not active).
 
 ### Instructions for installation
+Install from [zachmane.github.io](zachmane.github.io)
 
-Build from source:
+To build from source:
 1. Install the latest Xcode developer tools from Apple. (Xcode 10 and up required)
     
 2. Install homebrew https://brew.sh
